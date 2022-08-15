@@ -1,11 +1,11 @@
+import Navbar from "./components/Navbar";
 import { Landingpage } from "./pages/landingpage";
-
 
 function App() {
   return (
     <>
-      <h1 className="app">Hello There</h1>
-      <Landingpage/>
+      <Navbar />
+      <Landingpage />
     </>
   );
 }
