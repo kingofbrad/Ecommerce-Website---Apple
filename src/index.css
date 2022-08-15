@@ -5,3 +5,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1024px;
+}
+
+.nav * {
+  float: inherit;
+  font-size: 1em;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  text-align: inherit;
+}
+
+
+.nav li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav a {
+  font-weight: 500;
+}
