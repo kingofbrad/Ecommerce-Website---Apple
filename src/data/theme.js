@@ -7,5 +7,5 @@ const fonts = {
 };
 
 
-const customTheme = extendTheme(fonts)
+const customTheme = extendTheme()
 export default customTheme
