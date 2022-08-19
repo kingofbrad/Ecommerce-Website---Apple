@@ -1,4 +1,17 @@
-import { Box, Flex, Icon, Text, Image, Link } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Icon,
+  Text,
+  Image,
+  Link,
+  MenuButton,
+  Menu,
+  Button,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+} from "@chakra-ui/react";
 import React from "react";
 import {
   AppleBasketIcon,
@@ -45,7 +58,29 @@ const DeskTopNav = () => {
         <Text>Accessories</Text>
         <Text>Support</Text>
         <AppleSearchIcon />
-        <AppleBasketIcon />
+        {/* <AppleBasketIcon /> */}
+        <Menu placement="bottom">
+          <MenuButton
+            as={Button}
+            bg={"none"}
+            _hover={{ background: "none" }}
+            _focus={{ background: "none" }}
+            _active={{ background: "none" }}
+          >
+            <AppleBasketIcon />
+          </MenuButton>
+          <MenuList width={"286px"} bg={"white"} color={"black"}>
+            <MenuItem display={"block"}>
+              <Text textAlign={"center"} fontSize={"12px"} p={"35px 0 23px"}>
+                Your Bag is Empty
+              </Text>
+            </MenuItem>
+            <MenuDivider bg={'black'}/>
+            <MenuItem>
+              <Text>Bag</Text>
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </Box>
     </Box>
   );
@@ -55,13 +90,22 @@ export const CharityBar = () => {
   return (
     <>
       <Box w={"100%"} h={"60px"} color={"white"} bg={"blackAlpha.900"}>
-        <Box gap={'15px'} display={'flex'} pos={'relative'} alignItems={'center'} justifyContent={'center'} top={'12px'}>
+        <Box
+          gap={"15px"}
+          display={"flex"}
+          pos={"relative"}
+          alignItems={"center"}
+          justifyContent={"center"}
+          top={"12px"}
+        >
           <Image
             src="https://www.apple.com/v/home/aq/images/logos/unicef-relief-fund/unicef_logo_light__dcs7ftrtc88y_large.png"
             alt="https://www.apple.com/v/home/aq/images/logos/unicef-relief-fund/unicef_logo_light__dcs7ftrtc88y_large.png"
             class="transparent"
           />
-          <Link color={'blue.400'} fontSize={'14px'}>Donate to support families affected by the was in Ukraine &#8599;</Link>
+          <Link color={"blue.400"} fontSize={"14px"}>
+            Donate to support families affected by the was in Ukraine &#8599;
+          </Link>
         </Box>
       </Box>
     </>
