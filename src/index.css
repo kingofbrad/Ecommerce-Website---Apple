@@ -11,3 +11,40 @@ body {
 
 }
 
+.MenuArrow {
+  left: 50%;
+  top: -2.1%;
+  background-color: white;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-color: #d2d2d7;
+  content: '';
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transform: rotate(45deg) skew(4deg, 4deg);
+  transform-origin: 0% 0;
+
+}
+
+.bagview-nav-link {
+  color: #06c;
+  padding: 0 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: -0.016em;
+  display: block;
+}
+
+.bagview-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.hover-state-bag {
+  display: block;
+}

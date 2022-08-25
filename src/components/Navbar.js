@@ -11,13 +11,17 @@ import {
   MenuList,
   MenuItem,
   MenuDivider,
+  PopoverArrow,
 } from "@chakra-ui/react";
 import React from "react";
 import {
   AppleBasketIcon,
   AppleLogoIcon,
   AppleSearchIcon,
+  DropDownText,
 } from "./Apple_Components";
+import { DropDownList, MainNavList } from "../data/data.db";
+import BasketIcon from "../assets/Apple_Menu_Icons/BasketIcon.svg";
 
 const Navbar = () => {
   return (
@@ -27,8 +31,8 @@ const Navbar = () => {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
-        fontSize={"12px"}
-        bg={"rgba(0,0,0,0.8)"}
+        fontSize={"11.5px"}
+        bg={"rgba(0,0,0,0.86)"}
         backdropBlur={"20px"}
         backdropSaturate={"180%"}
         w={"100%"}
@@ -45,18 +49,20 @@ export default Navbar;
 const DeskTopNav = () => {
   return (
     <Box Maxw={"980px"}>
-      <Box display={"flex"} gap={"41px"} alignItems={"center"}>
+      <Box
+        display={"flex"}
+        width={"980px"}
+        m={"0 -8px"}
+        userSelect={"none"}
+        cursor={"default"}
+        justifyContent={"space-between"}
+        alignItems={"center"}
+      >
         <AppleLogoIcon />
-        <Text>Store</Text>
-        <Text>Mac</Text>
-        <Text>iPad</Text>
-        <Text>iPhone</Text>
-        <Text>Watch</Text>
-        <Text>AirPods</Text>
-        <Text>Tv &#38; Home</Text>
-        <Text>Only on Apple</Text>
-        <Text>Accessories</Text>
-        <Text>Support</Text>
+        {MainNavList &&
+          MainNavList.map((data) => {
+            return <Text pl={"17px"}>{data.title}</Text>;
+          })}
         <AppleSearchIcon />
         {/* <AppleBasketIcon /> */}
         <Menu placement="bottom">
@@ -69,16 +75,53 @@ const DeskTopNav = () => {
           >
             <AppleBasketIcon />
           </MenuButton>
-          <MenuList width={"286px"} bg={"white"} color={"black"}>
+
+          <MenuList
+            width={"286px"}
+            borderRadius={"20px"}
+            border={"2px solid #d2d2d7"}
+            bg={"white"}
+            color={"black"}
+          >
+            <div className="MenuArrow" />
             <MenuItem display={"block"}>
-              <Text textAlign={"center"} fontSize={"12px"} p={"35px 0 23px"}>
-                Your Bag is Empty
+              <Text
+                textAlign={"center"}
+                fontSize={"14px"}
+                color={"#6e6e73"}
+                p={"35px 0 23px"}
+              >
+                Your Bag is empty
               </Text>
             </MenuItem>
-            <MenuDivider bg={'black'}/>
-            <MenuItem>
-              <Text>Bag</Text>
-            </MenuItem>
+            {DropDownList &&
+              DropDownList.map((data) => {
+                return (
+                  <MenuItem h={"20px"} m={"12px 0 0"} display={""}>
+                    <Box m={"0"} p={"0"}>
+                      <Box
+                        borderTop={"1px solid #d2d2d7"}
+                        position={"relative"}
+                        paddingTop={"10px"}
+                        whiteSpace={"nowrap"}
+                        overflow={"hidden"}
+                        textOverflow={"ellipsis"}
+                        display={"flex"}
+                      >
+                        <Flex
+                          className="bagview-nav-link bagview-icons"
+                          fontSize={"14px"}
+                        >
+                          {data.icon}
+                          <Box _hover={{ borderBottom: "1px solid #06c" }}>
+                            {data.title}
+                          </Box>
+                        </Flex>
+                      </Box>
+                    </Box>
+                  </MenuItem>
+                );
+              })}
           </MenuList>
         </Menu>
       </Box>
